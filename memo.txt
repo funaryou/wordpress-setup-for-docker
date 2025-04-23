@@ -1,0 +1,15 @@
+1.wordpress admin site（http://localhost:8080/wp-admin）にログインする
+2.左のメニューにある「ツール」→「エクスポート」を選択
+3.エクスポートしたいコンテンツ（投稿、ページ、メディアなど）を選択
+4.「エクスポートファイルをダウンロード」をクリック
+5.XMLファイルとしてダウンロードされます
+
+wpのコンテンツフォルダを作成:mkdir -p wp-content
+
+docker exec wordpress-db-1 mysqldump -uwordpress -pwordpress wordpress > wordpress_backup.sql
+
+主な編集可能なファイルの場所:
+テーマファイル: ./wordpress/wp-content/themes/[テーマ名]/
+プラグインファイル: ./wordpress/wp-content/plugins/
+アップロードファイル: ./wordpress/wp-content/uploads/
+設定ファイル: ./wordpress/wp-config.php
